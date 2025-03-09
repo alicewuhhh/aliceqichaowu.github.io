@@ -20,7 +20,7 @@
             height: 100%;
             object-fit: cover;
             z-index: -1;
-            filter: brightness(70%); /* Slightly dims video for text readability */
+            filter: brightness(70%); /* Dims video for text readability */
         }
         header {
             background-color: rgba(51, 51, 51, 0.9);
@@ -74,7 +74,7 @@
     </style>
 </head>
 <body>
-    <video class="video-background" autoplay muted loop>
+    <video class="video-background" autoplay muted loop playsinline>
         <source src="images/web_background.MOV" type="video/mp4">
         Your browser does not support the video tag.
     </video>
@@ -86,39 +86,4 @@
         <a href="#research">Research</a>
         <a href="#work">Work</a>
         <a href="#publications">Publications</a>
-        <a href="#life">Life</a>
-    </nav>
-    <main id="content">
-        <p>Loading content...</p>
-    </main>
-    <footer>
-        <p>© 2025 Qichao Alice Wu. All rights reserved.</p>
-    </footer>
-
-    <script>
-        function loadSection(section) {
-            fetch(`${section}.html`)
-                .then(response => {
-                    if (!response.ok) throw new Error(`Could not load ${section}.html`);
-                    return response.text();
-                })
-                .then(data => {
-                    document.getElementById('content').innerHTML = data;
-                })
-                .catch(error => {
-                    document.getElementById('content').innerHTML = `<p>Sorry, something went wrong: ${error.message}</p>`;
-                });
-        }
-        window.onload = function() {
-            loadSection('me');
-        };
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', function(event) {
-                event.preventDefault();
-                const section = this.getAttribute('href').substring(1);
-                loadSection(section);
-            });
-        });
-    </script>
-</body>
-</html>
+        <
