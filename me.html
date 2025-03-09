@@ -1,36 +1,49 @@
 <section id="me">
     <h2>About Me</h2>
-    <p>Connect with me on my professional and social profiles:</p>
+    <div class="intro">
+        <p>Hi, I'm Alice! Welcome to my little corner of the web, where I share my passions for neuroscience, AI, and adventure.</p>
+        <p>I’m currently working at Dr. John Detre’s lab at Penn Medicine, assisting with data analysis for the RECOVER program at Dr. David Fischer’s lab. I’ve always been curious about human consciousness, aging, philosophy, and brain-computer interfaces. Growing up watching sci-fi sparked my interest, leading me to major in Neuroscience at Colorado College. As I explored science, I became fascinated by AI—its efficiency in analyzing data, finding patterns, and predicting outcomes like the human brain. My dream is to become a scientist using AI/ML tools in biomedicine, contributing to research that helps patients with cognitive deficits and neurological disorders. Outside of work, I enjoy snowboarding, surfing, and seeking the beauty and challenges of nature through sports!</p>
+    </div>
+
     <div class="social-links">
-        <a href="https://www.linkedin.com/in/aliceqichaowu/" target="_blank" title="LinkedIn">
+        <a href="https://www.linkedin.com/in/your-linkedin-username" target="_blank" title="LinkedIn">
             <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn Logo">
         </a>
-        <a href="https://scholar.google.com/citations?hl=en&user=pU6qbRkAAAAJ" target="_blank" title="Google Scholar">
+        <a href="https://scholar.google.com/citations?user=your-google-scholar-id" target="_blank" title="Google Scholar">
             <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg" alt="Google Scholar Logo">
         </a>
-        <a href="https://www.instagram.com/alicest_w/" target="_blank" title="Instagram">
+        <a href="https://www.instagram.com/your-instagram-username" target="_blank" title="Instagram">
             <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo">
         </a>
     </div>
 
     <style>
+        .intro {
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        .intro p:first-child {
+            font-weight: bold;
+            color: #0066cc;
+        }
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 2rem; /* Space between logos */
+            gap: 2rem;
             padding: 1rem 0;
         }
         .social-links a {
             display: inline-block;
-            transition: transform 0.3s ease; /* Smooth hover effect */
+            transition: transform 0.3s ease;
         }
         .social-links img {
-            width: 50px; /* Adjust size as needed */
+            width: 50px;
             height: 50px;
-            object-fit: contain; /* Ensures logos scale properly */
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
         }
         .social-links a:hover {
-            transform: scale(1.1); /* Slight zoom on hover */
+            transform: scale(1.1);
         }
     </style>
 </section>
