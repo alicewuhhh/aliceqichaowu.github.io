@@ -1,76 +1,114 @@
-<section id="me">
-    <h2>About Me</h2>
-    <div class="intro">
-        <img src="images/headshot_Alice.JPG" alt="My picture" class="profile-pic">
-        <p>Hi, I'm Alice! Welcome to my little corner of the web, where I share my passions for neuroscience, AI, and adventure.</p>
-        <p>I’m currently working at <a href="https://hosting.med.upenn.edu/detrelab/research-2/" target="_blank">Prof. John Detre’s lab</a> at Penn Medicine, assisting with data analysis for the RECOVER program at <a href="https://www.med.upenn.edu/recover-program/recover-program-research/" target="_blank">Prof. David Fischer’s lab</a>. I’ve always been curious about human consciousness, aging, philosophy, and brain-computer interfaces. Growing up watching sci-fi sparked my interest, leading me to major in Neuroscience at Colorado College (B.A.) and Biomedical Engineering at Carnegie Mellon University (M.S.).</p>
-        <p>As I explored neuroscience, I became fascinated by AI—its efficiency in analyzing great volumes of data, finding patterns, and predicting outcomes like the human brain. My dream is to become a scientist using AI/ML tools in biomedicine, contributing to research that helps patients with cognitive deficits and neurological disorders.<br>Outside of work, I enjoy snowboarding, surfing, traveling, and seeking the beauty and challenges of nature through sports!</p>
-    </div>
-
-    <div class="social-links">
-        <a href="https://www.linkedin.com/in/your-linkedin-username" target="_blank" title="LinkedIn">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn Logo">
-        </a>
-        <a href="https://scholar.google.com/citations?user=your-google-scholar-id" target="_blank" title="Google Scholar">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg" alt="Google Scholar Logo">
-        </a>
-        <a href="https://www.instagram.com/your-instagram-username" target="_blank" title="Instagram">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo">
-        </a>
-    </div>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qichao Alice Wu's Website</title>
     <style>
-        h2 {
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
             color: #1A1A1A; /* Darker text */
+            overflow-x: hidden;
+            background: url('images/web_background.JPG') no-repeat center center fixed;
+            background-size: cover;
+        }
+        header {
+            background-color: rgba(51, 51, 51, 0.9);
+            color: #fff;
+            padding: 2rem;
             text-align: center;
-            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
         }
-        .intro {
-            margin-bottom: 2rem;
-            line-height: 1.6;
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            color: #D8D6E5; /* Lilac-tinted Lavender Fog */
         }
-        .intro .profile-pic {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 1rem; /* Center the image */
-            display: block; /* Ensure centering works */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-        .intro p {
-            color: #1A1A1A; /* Darker text */
-        }
-        .intro p:first-child {
-            font-weight: bold;
-            color: #C8C6D7; /* Lavender Fog for welcome */
-        }
-        .intro a {
-            color: #C8C6D7; /* Lavender Fog for links */
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .intro a:hover {
-            text-decoration: underline;
-        }
-        .social-links {
+        nav {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            background-color: rgba(68, 68, 68, 0.9); /* Darker tabs */
             padding: 1rem 0;
+            position: relative;
         }
-        .social-links a {
-            display: inline-block;
-            transition: transform 0.3s ease;
+        nav a {
+            color: #fff;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
         }
-        .social-links img {
-            width: 50px;
-            height: 50px;
-            object-fit: contain;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        nav a:hover {
+            background-color: #C8C6D7; /* Lavender Fog on hover */
+            color: #1A1A1A; /* Darker text on hover */
         }
-        .social-links a:hover {
-            transform: scale(1.1);
+        main {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            min-height: 400px;
+            position: relative;
+        }
+        footer {
+            background-color: rgba(51, 51, 51, 0.9);
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
     </style>
-</section>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Alice's Wonderland!</h1>
+    </header>
+    <nav>
+        <a href="#me">Me</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#life">Life</a>
+    </nav>
+    <main id="content">
+        <p>Loading content...</p>
+    </main>
+    <footer>
+        <p>© 2025 Qichao Alice Wu. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Section Loading Logic
+        function loadSection(section) {
+            fetch(`${section}.html`)
+                .then(response => {
+                    if (!response.ok) throw new Error(`Could not load ${section}.html`);
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('content').innerHTML = data;
+                })
+                .catch(error => {
+                    document.getElementById('content').innerHTML = `<p>Sorry, something went wrong: ${error.message}</p>`;
+                });
+        }
+        window.onload = function() {
+            loadSection('me');
+        };
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                const section = this.getAttribute('href').substring(1);
+                loadSection(section);
+            });
+        });
+    </script>
+</body>
+</html>
