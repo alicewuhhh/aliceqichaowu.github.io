@@ -11,6 +11,7 @@
             padding: 0;
             color: #333;
             overflow-x: hidden;
+            transition: background 1s ease; /* Smooth transition for image */
         }
         .video-background {
             position: fixed;
@@ -20,7 +21,7 @@
             height: 100%;
             object-fit: cover;
             z-index: -1;
-            filter: brightness(70%); /* Dims video for text readability */
+            filter: brightness(70%);
         }
         header {
             background-color: rgba(51, 51, 51, 0.9);
@@ -74,7 +75,7 @@
     </style>
 </head>
 <body>
-    <video class="video-background" autoplay muted loop playsinline>
+    <video class="video-background" autoplay muted playsinline id="bgVideo">
         <source src="images/web_background.MOV" type="video/mp4">
         Your browser does not support the video tag.
     </video>
@@ -84,6 +85,49 @@
     <nav>
         <a href="#me">Me</a>
         <a href="#research">Research</a>
-        <a href="#work">Work</a>
         <a href="#publications">Publications</a>
-        <
+        <a href="#life">Life</a>
+    </nav>
+    <main id="content">
+        <p>Loading content...</p>
+    </main>
+    <footer>
+        <p>© 2025 Qichao Alice Wu. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Video to Image Background Transition
+        const video = document.getElementById('bgVideo');
+        video.addEventListener('ended', function() {
+            video.style.display = 'none'; // Hide video
+            document.body.style.background = "url('images/web_background.JPG') no-repeat center center fixed";
+            document.body.style.backgroundSize = 'cover';
+        });
+
+        // Existing Section Loading Logic
+        function loadSection(section) {
+            fetch(`${section}.html`)
+                .then(response => {
+                    if (!response.ok) throw new Error(`Could not load ${section}.html`);
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('content').innerHTML = data;
+                })
+                .catch(error => {
+                    document.getElementById('content').innerHTML = `<p>Sorry, something went wrong: ${error.message}</p>`;
+                });
+        }
+        window.onload = function() {
+            loadSection('me');
+        };
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                const section = this.getAttribute('href').substring(1);
+                loadSection(section);
+            });
+        });
+    </script>
+</body>
+</html>
