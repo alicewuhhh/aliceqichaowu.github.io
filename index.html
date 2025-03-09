@@ -104,7 +104,7 @@
             document.body.style.backgroundSize = 'cover';
         });
 
-        // Existing Section Loading Logic
+        // Section Loading Logic
         function loadSection(section) {
             fetch(`${section}.html`)
                 .then(response => {
@@ -119,7 +119,7 @@
                 });
         }
         window.onload = function() {
-            loadSection('me');
+            loadSection('me'); // Load "Me" section by default
         };
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', function(event) {
