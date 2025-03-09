@@ -41,10 +41,17 @@
             text-decoration: none;
             font-weight: bold;
             transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center; /* Center logo vertically */
         }
         nav a:hover {
             background-color: #C8C6D7; /* Lavender Fog on hover */
             color: #1A1A1A; /* Darker text on hover */
+        }
+        nav a.resume-link img {
+            width: 24px; /* Small logo size */
+            height: 24px;
+            margin-right: 0.5rem; /* Space between logo and text */
         }
         main {
             max-width: 1000px;
@@ -76,6 +83,9 @@
         <a href="#research">Research</a>
         <a href="#publications">Publications</a>
         <a href="#life">Life</a>
+        <a href="documents/Alice_Wu_Resume.pdf" target="_blank" class="resume-link">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg" alt="Resume Icon"> Resume
+        </a>
     </nav>
     <main id="content">
         <p>Loading content...</p>
@@ -102,7 +112,7 @@
         window.onload = function() {
             loadSection('me');
         };
-        document.querySelectorAll('nav a').forEach(link => {
+        document.querySelectorAll('nav a:not(.resume-link)').forEach(link => {
             link.addEventListener('click', function(event) {
                 event.preventDefault();
                 const section = this.getAttribute('href').substring(1);
