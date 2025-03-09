@@ -28,14 +28,14 @@
         .intro {
             margin-bottom: 2rem;
             line-height: 1.6;
-            text-align: center;
         }
         .intro .profile-pic {
             width: 150px;
             height: 150px;
             border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 1rem;
+            margin: 0 auto 1rem; /* Center the image */
+            display: block; /* Ensure centering works */
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
         .intro p {
@@ -43,7 +43,7 @@
         }
         .intro p:first-child {
             font-weight: bold;
-            color: #C8C6D7; /* Lavender Fog retained for welcome */
+            color: #C8C6D7; /* Lavender Fog for welcome */
         }
         .intro a {
             color: #C8C6D7; /* Lavender Fog for links */
