@@ -2,29 +2,37 @@
     <h2>Life & Adventures</h2>
     <p>I love surfing, snowboarding, and exploring the fantasy of sports in nature. I also enjoy solo-traveling, meeting new people along the way. Places I’ve traveled alone: Japan, Europe, Canada, and Honolulu.</p>
 
-    <div class="life-images">
-        <div class="image-item">
-            <img src="images/surfing.JPG" alt="Surfing Adventure in Honolulu, Hawaii" style="max-width: 100%;">
-            <p>Surfing Adventure in Honolulu, Hawaii</p>
+    <div class="life-gallery">
+        <div class="gallery-item">
+            <img src="images/surfing.JPG" alt="Surfing Adventure in Honolulu, Hawaii">
+            <p>Surfing in Honolulu, Hawaii</p>
         </div>
-        <div class="image-item">
-            <img src="images/snowboard_japan.HEIC" alt="Snowboarding in Niseko, Japan" style="max-width: 100%;">
-            <img src="images/snowboarding.jpg" alt="Snowboarding in Colorado" style="max-width: 100%;">
-            <p>Shredding the slopes in Colorado and Niseko, Japan</p>
+        <div class="gallery-item">
+            <div class="image-stack">
+                <img src="images/japan_snowboard.jpg" alt="Snowboarding in Niseko, Japan">
+                <img src="images/snowboarding.jpg" alt="Snowboarding in Colorado">
+            </div>
+            <p>Shredding slopes in Colorado & Niseko, Japan</p>
         </div>
-        <div class="image-item">
-            <img src="images/travel-paris.mov" alt="Travel to Paris!" style="max-width: 100%;">
-            <p>Exploring Effiel Tower in Paris during Olympics</p>
+        <div class="gallery-item">
+            <img src="images/surfing_CR.JPG" alt="Surfing in Costa Rica">
+            <p>Surfing in Costa Rica!</p>
         </div>
-        <div class="image-item">
-            <img src="images/travel-Nice.HEIC" alt="Travel to Paris!" style="max-width: 100%;">
-            <p>Bonjour Nice!!</p>
+        <div class="gallery-item">
+            <video controls muted loop>
+                <source src="images/travel-paris.mov" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p>Exploring Eiffel Tower in Paris during the Olympics</p>
         </div>
-        <div class="image-item">
-            <img src="images/travel_japan.HEIC" alt="Travel to Paris!" style="max-width: 100%;">
-            <p>Tokyo!</p>
+        <div class="gallery-item">
+            <img src="images/travel-nice.JPG" alt="Travel to Nice, France">
+            <p>Bonjour Nice!</p>
         </div>
-        
+        <div class="gallery-item">
+            <img src="images/travel-japan.JPG" alt="Travel to Tokyo, Japan">
+            <p>Tokyo Adventures!</p>
+        </div>
     </div>
 
     <div class="social-link">
@@ -32,33 +40,54 @@
     </div>
 
     <style>
-        .life-images {
-            display: flex;
-            justify-content: center;
+        .life-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
-            flex-wrap: wrap;
-            margin: 1.5rem 0;
+            margin: 2rem 0;
+            padding: 0 1rem;
         }
-        .image-item {
+        .gallery-item {
             text-align: center;
-            max-width: 300px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            padding: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
         }
-        .image-item img {
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        .gallery-item img, .gallery-item video {
+            max-width: 100%;
+            height: auto;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            object-fit: cover;
+            margin-bottom: 0.5rem;
         }
-        .image-item p {
-            margin: 0.5rem 0 0;
+        .image-stack img {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .gallery-item video {
+            width: 100%;
+            max-height: 200px;
+        }
+        .gallery-item p {
+            margin: 0;
             font-style: italic;
             color: #555;
+            font-size: 0.9rem;
         }
         .social-link {
             text-align: center;
+            margin-top: 1.5rem;
         }
         .social-link a {
             color: #0066cc;
             text-decoration: none;
             font-weight: bold;
+            font-size: 1.1rem;
         }
         .social-link a:hover {
             text-decoration: underline;
