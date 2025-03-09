@@ -3,89 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Simple Website</title>
+    <title>Qichao Alice Wu's Website</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background: linear-gradient(135deg, #e0f7fa, #b2ebf2, #80deea, #4dd0e1);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: #333;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
         }
         header {
-            background-color: #333;
+            background-color: rgba(51, 51, 51, 0.9);
             color: #fff;
-            padding: 1rem;
+            padding: 2rem;
             text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
         }
         nav {
             display: flex;
             justify-content: center;
-            background-color: #444;
+            background-color: rgba(68, 68, 68, 0.9);
+            padding: 1rem 0;
         }
         nav a {
             color: #fff;
-            padding: 1rem;
+            padding: 1rem 2rem;
             text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
         }
         nav a:hover {
-            background-color: #555;
+            background-color: #666;
         }
         main {
+            max-width: 1000px;
+            margin: 2rem auto;
             padding: 2rem;
-            min-height: 400px; /* Ensures visibility even if content fails to load */
-        }
-        section {
-            border-bottom: 1px solid #ddd;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            min-height: 400px;
         }
         footer {
-            background-color: #333;
+            background-color: rgba(51, 51, 51, 0.9);
             color: #fff;
             text-align: center;
             padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to My Website</h1>
+        <h1>Welcome to Alice's Wonderland!</h1>
     </header>
     <nav>
         <a href="#me">Me</a>
         <a href="#research">Research</a>
+        <a href="#work">Work</a>
         <a href="#publications">Publications</a>
         <a href="#life">Life</a>
     </nav>
     <main id="content">
-        <p>Loading content...</p> <!-- Fallback content -->
+        <p>Loading content...</p>
     </main>
     <footer>
-        <p>© 2025 [Your Name]. All rights reserved.</p>
+        <p>© 2025 Qichao Alice Wu. All rights reserved.</p>
     </footer>
 
     <script>
         function loadSection(section) {
             fetch(`${section}.html`)
                 .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`Could not load ${section}.html`);
-                    }
+                    if (!response.ok) throw new Error(`Could not load ${section}.html`);
                     return response.text();
                 })
                 .then(data => {
                     document.getElementById('content').innerHTML = data;
                 })
                 .catch(error => {
-                    document.getElementById('content').innerHTML = 
-                        `<p>Sorry, something went wrong: ${error.message}</p>`;
+                    document.getElementById('content').innerHTML = `<p>Sorry, something went wrong: ${error.message}</p>`;
                 });
         }
 
-        // Load the default section when the page loads
         window.onload = function() {
             loadSection('me');
         };
 
-        // Add event listeners to navigation links
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', function(event) {
                 event.preventDefault();
