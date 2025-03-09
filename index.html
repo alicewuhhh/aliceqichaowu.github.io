@@ -11,7 +11,8 @@
             padding: 0;
             color: #333;
             overflow-x: hidden;
-            transition: background 1s ease; /* Smooth transition for image */
+            transition: background 1s ease;
+            background-color: #C8C6D7; /* Lavender Fog as fallback */
         }
         .video-background {
             position: fixed;
@@ -51,7 +52,8 @@
             transition: background-color 0.3s ease;
         }
         nav a:hover {
-            background-color: #666;
+            background-color: #C8C6D7; /* Lavender Fog on hover */
+            color: #333;
         }
         main {
             max-width: 1000px;
@@ -99,7 +101,7 @@
         // Video to Image Background Transition
         const video = document.getElementById('bgVideo');
         video.addEventListener('ended', function() {
-            video.style.display = 'none'; // Hide video
+            video.style.display = 'none';
             document.body.style.background = "url('images/web_background.JPG') no-repeat center center fixed";
             document.body.style.backgroundSize = 'cover';
         });
@@ -119,7 +121,7 @@
                 });
         }
         window.onload = function() {
-            loadSection('me'); // Load "Me" section by default
+            loadSection('me');
         };
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', function(event) {
